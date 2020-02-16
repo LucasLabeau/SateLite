@@ -5,16 +5,25 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
+     // Me aseguro que la tabla y el id tengan el nombre que quiero
+     protected $table = 'users';
+     
+     protected $primaryKey = 'user_id';
+
+
+     // Y relleno...
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -36,4 +45,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Relaciones...
+    public function order() {
+      return $this->hasMany(Order::class, "user_id");
+    }
+
+    public function application() {
+      return $this->hasMany(Application::class, "user_id");
+    }
 }
