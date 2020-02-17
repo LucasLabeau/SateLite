@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
@@ -11,7 +12,7 @@ class Comment extends Model
 
   // Me aseguro que la tabla y el id tengan el nombre que quiero
   protected $table = 'comments';
-  
+
   protected $primaryKey = 'comment_id';
 
 // Y relleno...

@@ -16,7 +16,7 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('comment_id');
             $table->unsignedInteger('order_id');
-            $table->integer('rating'); //FALTA PONER LIMITES ENTRE 1 Y 5!!!!
+            $table->unsignedInteger('rating');
             $table->longText('content');
             $table->timestamps();
             $table->softDeletes();
