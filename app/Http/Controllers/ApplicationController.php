@@ -17,7 +17,7 @@ class ApplicationController extends Controller
         //
         $applications = Application::paginate(3);
         $vac = compact('applications');
-        return view('', $vac);
+        return view('website.AppsList', $vac);
     }
 
     /**

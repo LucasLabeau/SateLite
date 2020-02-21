@@ -14,7 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+      $categories = Category::paginate(3);
+      $vac = compact('$categories');
+      return view('website.AppsList', $vac);
     }
 
     /**
