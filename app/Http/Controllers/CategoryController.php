@@ -15,8 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
       $categories = Category::paginate(3);
-      $vac = compact('$categories');
-      return view('website.AppsList', $vac);
+      $vac = compact('categories');
+      return view('layouts.header', $vac);
     }
 
     /**
@@ -48,7 +48,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $categories = Category::getElementById('category_id');
+        $vac = compact('categories');
+        return view('categories', $vac);
     }
 
     /**

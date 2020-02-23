@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@extends('layouts.header')
+
 @section('content')
   <div class="container" id="appsMain">
     <h1>Lo pediste, lo querías, ¡ahora lo tenés!</h1> <br>
@@ -13,8 +15,8 @@
           <div class="card-body">
           <h4>{{ $application["name"] }}</h4>
           <p><i>{{ $application["description"] }}</i></p>
-          <p>${{ $application["price"]}}</p>
           <img id="app_img" src="{{ $application["image_url"]}}" alt="imagen de la increíble app">
+          <p>${{ $application["price"]}}</p>
           <form class="form-group" action="{{ route('order') }}" method="post" enctype="multipart/form-data">
         @csrf
           <div class="form-group">
