@@ -1,0 +1,47 @@
+.agregar{
+  color:black;
+  padding: 0px;
+}
+.marca{
+  text-align: center;
+}
+.sinpadding{
+  padding: 0px;
+}
+li{
+  width:100%;
+}
+.red{
+  background-color: red;
+}
+.yellow{
+  background-color: yellow;
+}
+#encabezadoHome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#contenidoAltoHome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#contenidoBajoHome {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 600px;
+}
+#homeImg {
+  border-radius: 8px;
+  padding: 10px;
+  width: 400px;
+  height: 400px;
+}
+
+#productosMain {
+  background-color: white;
+}

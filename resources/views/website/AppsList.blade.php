@@ -14,17 +14,9 @@
           <h4>{{ $application["name"] }}</h4>
           <p><i>{{ $application["description"] }}</i></p>
           <p>${{ $application["price"]}}</p>
-          <img src="{{ $application["image"]}}" alt="imagen de la increíble app">
+          <img id="app_img" src="{{ $application["image_url"]}}" alt="imagen de la increíble app">
           <form class="form-group" action="{{ route('order') }}" method="post" enctype="multipart/form-data">
         @csrf
-          <div class="form-group">
-            <label for="quantity">Cantidad: </label>
-            <input type="number" name="quantity" value="">
-          </div>
-          <div class="form-group">
-            <label for="address">Dirección: </label>
-            <input type="text" name="address" value="">
-          </div>
           <div class="form-group">
             <input type="hidden" name= "application_id" value="{{$application["id"]}}">
         </div>
