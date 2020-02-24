@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
-@extends('layouts.header')
+<body>
+@include('layouts.header')
 
 @section('content')
   <div class="container" id="appsMain">
@@ -11,7 +11,7 @@
 
     <ul>
       @forelse ($applications as $application)
-        <li>
+        <li id="applications">
           <div class="card-body">
           <h4>{{ $application["name"] }}</h4>
           <p><i>{{ $application["description"] }}</i></p>
@@ -37,3 +37,5 @@
     </article>
     </section>
   </div>
+  @include('layouts.footer')
+  </body>

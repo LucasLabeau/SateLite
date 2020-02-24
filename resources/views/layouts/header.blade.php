@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>
     <header>
       <div id="app">
           <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -18,11 +17,16 @@
 
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <!-- Left Side Of Navbar -->
-                      <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('categories') }}">Categorias</a>
+                      <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Categorías
+                          </button>
+                        <li class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="{{ route('category', ['1']) }}">Acción</a>
+                          <a class="dropdown-item" href="{{ route('category', ['2']) }}">Estrategia</a>
+                          <a class="dropdown-item" href="{{ route('categories') }}">Más...</a>
                         </li>
-                      </ul>
+                      </div>
 
                       <!-- Right Side Of Navbar -->
                       <ul class="navbar-nav ml-auto">
@@ -65,5 +69,4 @@
           </main>
       </div>
     </header>
-  </body>
 </html>

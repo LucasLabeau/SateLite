@@ -38,7 +38,7 @@ DB::table('categories')->insert([
 
 DB::table('categories')->insert([
 
-  'name' => 'Otros',
+  'name' => 'Juegos de Mesa',
   'created_at' => now(),
   'updated_at' => now(),
 

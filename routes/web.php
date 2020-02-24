@@ -17,7 +17,7 @@ Route::get('/Application/{id}', 'ApplicationController@show');
 Route::get('/order', 'OrderController@show') -> name('order');
 
 Route::get('/categories', 'CategoryController@index') -> name('categories');
-Route::get('/categories/{id}', 'CategoryController@show');
+Route::get('/categories/{id}', 'CategoryController@show')-> name('category');
 
 Route::get('/login', function () {
   return view('Auth.login');

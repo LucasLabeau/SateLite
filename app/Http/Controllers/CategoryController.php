@@ -46,11 +46,14 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        $categories = Category::getElementById('category_id');
-        $vac = compact('categories');
-        return view('categories', $vac);
+      $categories=Category::find($id);
+      $applicaciones = \App\Application::where('category_id', $id)->paginate(9);
+      //dd($categories);
+      return view('website.category')
+      -> with ('applications', $applicaciones)
+      -> with ('categories', $categories);
     }
 
     /**

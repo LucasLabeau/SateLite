@@ -1,21 +1,16 @@
 @extends('layouts.app')
-
+<body>
 @include('layouts.header')
 
 @section('content')
-<body>
+
   <div class="container">
   <h1>Navegá por categoría para encontrar lo que buscás</h1>
   <section class = "row justify-content-center">
     <article class="card">
 
   <ul>
-    @forelse ($categories as $category)
-      <h4>{{ $category["name"] }}</h4>
-      @empty
-
-      @endforelse
-
+      <h4>{{ $categories["name"] }}</h4>
   </ul>
   </article>
   </section>
