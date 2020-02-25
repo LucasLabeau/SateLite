@@ -14,7 +14,7 @@ class CommentsTableSeeder extends Seeder
     {
       $faker = Faker::create();
 
-    foreach (range(1,3) as $index) {
+    foreach (range(1,20) as $index) {
         DB::table('comments')->insert([
           'order_id' => $faker->numberBetween(1, App\Order::count()),
           'rating' => $faker -> numberBetween(1, 5),

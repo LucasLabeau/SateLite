@@ -26,11 +26,21 @@ Route::get('/login', function () {
 Route::get('/register', function () {
   return view('auth.register');
 }) -> name('register');
+
+Route::get('/search',function (Request $request) {
+  if($request->has('search')){
+    $application = Application::search($request->get('search'))->get();
+  }else{
+    $application = Application::get();
+  }
+   return view('website.appShow', compact('application'));
+})->name('search');
+
 // Buscador
-Route::post('search', function(){
-    $q = Input::get ( 'q' );
-    $application = Application::where('name','LIKE','%'.$q.'%')->orWhere('description','LIKE','%'.$q.'%')->get();
-    if(count($application) > 0)
-        return view('website.appShow')->withDetails($application)->withQuery ( $q );
-    else return view('website.appShow')->withMessage('No se encontró la app');
-});
+//Route::post('search', function(){
+//    $q = \Request::get('search');
+//    $application = \App\Application::where('name','LIKE','%'.$q.'%')->orWhere('description','LIKE','%'.$q.'%')->get();
+//    if(count($application) > 0)
+//        return view('website.appShow', compact('application'))->withDetails($application)->withQuery ( $q );
+//    else return view('website.appShow')->withMessage('No se encontró la app');
+//});

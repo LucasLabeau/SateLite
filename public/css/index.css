@@ -8,6 +8,8 @@ div#appsMain {
   position: relative;
   top: 80px;
   background-color: white;
+  width: 100%;
+  height: 100%;
 }
 section#appsMain {
   display: flex;
@@ -70,6 +72,36 @@ li#applications1 {
   margin-right: 10px;
   position: relative;
   right: 20px;
+}
+li#appShow {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: sans-serif;
+  border-style: double;
+  border-color: rgba(105,105,105,0.7);
+  border-radius: 5px;
+  background-color: white;
+}
+li#comments {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: sans-serif;
+  border-style: dashed;
+  border-color: rgba(105,105,105,0.7);
+  border-radius: 5px;
+  background-color: white;
+}
+section#malaSeccion {
+  display: hidden;
+  justify-content: center;
+  font-family: sans-serif;
+  position: relative;
+  top: 100px;
+  width: 100%;
+  border-left: 50px;
+  border-right: 50px;
 }
 article#tituloCategoria {
   position: relative;
@@ -195,4 +227,18 @@ h4 {
   display: flex;
   text-align: center;
   justify-content: center;
+}
+li#comments {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  border-style: double;
+  border-color: rgba(105,105,105,0.7);
+  border-radius: 5px;
+  margin: 5px;
+  position: relative;
+  right: 5px;
+}
+p#commentRating {
+  color: blue;
 }

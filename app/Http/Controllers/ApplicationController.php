@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Order;
+use App\User;
+use App\Comment;
+use App\Category;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
@@ -49,13 +54,19 @@ class ApplicationController extends Controller
      */
     public function show($id)
     {
-        $application = Application::find($id);
-        $orders = \App\Order::where('application_id', $id);
-        $comments = \App\Comment::where('order_id', $orders["order_id"]);
+      $application = Application::find($id);
+      $comments = DB::select("select * from users
+      inner join orders on orders.user_id = users.id
+      right join comments on comments.order_id = orders.order_id");
+        //$application = Application::find($id);
+        //$users = User::all();
+        //$orders = Order::all();
+        //$comments = Comment::all();
+        //dd($application);
         return view('website.appShow')
         -> with ('application', $application)
-        -> with ('orders', $orders)
         -> with('comments', $comments);
+
     }
 
     /**
