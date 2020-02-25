@@ -14,9 +14,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      $categories = Category::paginate(3);
-      $vac = compact('categories');
-      return view('layouts.header', $vac);
+      $categories = Category::all();
+      $applications = \App\Application::all();
+      return view('website.categories')
+      -> with('categories', $categories)
+      -> with ('applications', $applications);
     }
 
     /**
@@ -37,7 +39,21 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $rules = [
+          'name' => 'required'
+      ];
+
+      $msg =[
+          'el ::attribute es requerido'
+      ];
+
+      $this->validate($request,$rules,$msg);
+
+      $categoria = new Category($request->all());
+
+      $categoria->save();
+
+      return redirect('/categories');
     }
 
     /**
@@ -49,10 +65,10 @@ class CategoryController extends Controller
     public function show($id)
     {
       $categories=Category::find($id);
-      $applicaciones = \App\Application::where('category_id', $id)->paginate(9);
+      $applications = \App\Application::where('category_id', $id)->paginate(9);
       //dd($categories);
       return view('website.category')
-      -> with ('applications', $applicaciones)
+      -> with ('applications', $applications)
       -> with ('categories', $categories);
     }
 

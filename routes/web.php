@@ -10,11 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Routes::Auth();
 
 Route::get('/','ApplicationController@index');
 Route::get('/Application/{id}', 'ApplicationController@show');
 
-Route::get('/order', 'OrderController@show') -> name('order');
+Route::post('order', 'OrderController@store') -> name('order');
 
 Route::get('/categories', 'CategoryController@index') -> name('categories');
 Route::get('/categories/{id}', 'CategoryController@show')-> name('category');

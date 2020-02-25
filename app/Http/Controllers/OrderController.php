@@ -35,7 +35,22 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $rules = [
+          'user_id' => 'required',
+          'application_id' => 'required',
+      ];
+
+      $msg =[
+          'el ::attribute es requerido'
+      ];
+
+      $this->validate($request,$rules,$msg);
+
+      $order = new Order($request->all());
+
+      $order->save();
+
+      return redirect('website.order');
     }
 
     /**
