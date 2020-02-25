@@ -47,9 +47,15 @@ class ApplicationController extends Controller
      * @param  \App\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function show(Application $application)
+    public function show($id)
     {
-        //
+        $application = Application::find($id);
+        $orders = \App\Order::where('application_id', $id);
+        $comments = \App\Comment::where('order_id', $orders["order_id"]);
+        return view('website.appShow')
+        -> with ('application', $application)
+        -> with ('orders', $orders)
+        -> with('comments', $comments);
     }
 
     /**

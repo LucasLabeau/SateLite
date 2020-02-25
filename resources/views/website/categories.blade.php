@@ -10,7 +10,7 @@
         </article>
       <article id="nombreCategorias" class="card">
         @forelse ($categories as $category)
-          <h4 id="nombreCategorias">{{ $category["name"] }}</h4>
+          <h4 class="card-header" id="nombreCategorias">{{ $category["name"] }}</h4>
           @forelse ($applications as $application)
             @if ($application["category_id"] == $category["category_id"])
               <li id="applicationsInCat">

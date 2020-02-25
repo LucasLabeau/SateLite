@@ -40,10 +40,6 @@ class OrderController extends Controller
           'application_id' => 'required',
       ];
 
-      $msg =[
-          'el ::attribute es requerido'
-      ];
-
       $this->validate($request,$rules,$msg);
 
       $order = new Order($request->all());

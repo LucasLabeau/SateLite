@@ -64,7 +64,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-      $categories=Category::find($id);
+      $categories = Category::find($id);
       $applications = \App\Application::where('category_id', $id)->paginate(9);
       //dd($categories);
       return view('website.category')

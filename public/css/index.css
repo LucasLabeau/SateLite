@@ -4,10 +4,16 @@ font-family: sans-serif;
 color: rgb(24,24,24);
 z-index: -10;
 }
-#appsMain {
+div#appsMain {
   position: relative;
-  top: 60px;
+  top: 80px;
   background-color: white;
+}
+section#appsMain {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-left: 0px auto;
 }
 header {
   width: 100%;
@@ -51,6 +57,19 @@ li#applications {
   border-style: double;
   border-color: rgba(105,105,105,0.7);
   border-radius: 5px;
+  margin-left: 0px auto;
+}
+li#applications1 {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  border-style: double;
+  border-color: rgba(105,105,105,0.7);
+  border-radius: 5px;
+  margin-left: 0px auto;
+  margin-right: 10px;
+  position: relative;
+  right: 20px;
 }
 article#tituloCategoria {
   position: relative;
@@ -108,6 +127,24 @@ li#applicationsInCat {
   border-radius: 5px;
   margin-top: 5px;
 }
+article#loginCard {
+  display: flex;
+  position: absolute;
+  top: 100px;
+  width: 100%;
+}
+article#registerCard {
+  display: flex;
+  position: absolute;
+  top: 100px;
+  width: 100%;
+}
+form#search {
+  display: flex;
+  position: relative;
+  top: 8px;
+  left: 12px;
+}
 .red{
   background-color: red;
 }
@@ -153,4 +190,9 @@ h3 {
   border-style: double;
   border-color: rgba(105,105,105,0.7);
   border-radius: 5px;
+}
+h4 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }

@@ -27,7 +27,17 @@
                           <a class="dropdown-item" href="{{ route('categories') }}">Más...</a>
                         </li>
                       </div>
-
+                        <form id="search" action="search" method="POST" role="search">
+                          {{ csrf_field() }}
+                          <div class="input-group">
+                            <input type="text" class="form-control" name="q"
+                            placeholder="Buscá apps..."> <span class="input-group-btn">
+                              <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span>
+                              </button>
+                            </span>
+                          </div>
+                        </form>
                       <!-- Right Side Of Navbar -->
                       <ul class="navbar-nav ml-auto">
                           <!-- Authentication Links -->
