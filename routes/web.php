@@ -28,14 +28,7 @@ Route::get('/register', function () {
   return view('auth.register');
 }) -> name('register');
 
-Route::get('/search',function (Request $request) {
-  if($request->has('search')){
-    $application = Application::search($request->get('search'))->get();
-  }else{
-    $application = Application::get();
-  }
-   return view('website.appShow', compact('application'));
-})->name('search');
+Route::get('search', 'SearchController@search');
 
 // Buscador
 //Route::post('search', function(){

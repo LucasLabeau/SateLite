@@ -56,6 +56,7 @@ li{
 li#applications {
   display: flex;
   justify-content: center;
+  text-align: center;
   font-family: sans-serif;
   border-style: double;
   border-color: rgba(105,105,105,0.7);
@@ -106,7 +107,9 @@ section#malaSeccion {
 }
 article#tituloCategoria {
   position: relative;
-  top: 65px;
+  justify-content: center;
+  text-align: center;
+  top: 72px;
   width: 100%;
 }
 article#nombreCategoria {
@@ -121,7 +124,7 @@ article#nombreCategorias {
   display: flex;
   width: 100%;
   position: relative;
-  top: 100px;
+  top: 76px;
   justify-content: center;
   font-family: sans-serif;
   border-style: double;
@@ -154,6 +157,7 @@ h4#nombreCategorias {
 li#applicationsInCat {
   display: flex;
   justify-content: center;
+  text-align: center;
   font-family: sans-serif;
   border-style: solid;
   border-color: rgba(105,105,105,0.7);
@@ -242,4 +246,20 @@ li#comments {
 }
 p#commentRating {
   color: blue;
+}
+section#search {
+  display: flex;
+  position: relative;
+  top: 75px;
+  width: 100%;
+}
+li#searchBody {
+  display: flex;
+  position: relative;
+  right: 20px;
+  justify-content: center;
+  text-align: center;
+  font-family: sans-serif;
+  border: groove;
+  width: 100%;
 }
