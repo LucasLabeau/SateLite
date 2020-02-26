@@ -14,7 +14,7 @@
         <li id="applications1">
           <div class="card-body">
           <h4>{{ $application["name"] }}</h4>
-          <p><i>{{ $application["description"] }}</i></p>
+          <p><i>"{{ $application["description"] }}"</i></p>
           <img id="app_img" src="{{ $application["image_url"]}}" alt="imagen de la increíble app">
           <p>${{ $application["price"]}}</p>
           <form class="form-group" action="{{ route('order') }}" method="post" enctype="multipart/form-data">

@@ -8,7 +8,7 @@
         <li id="appShow">
           <div class="">
           <h4>{{ $application["name"] }}</h4>
-          <p><i>{{ $application["description"] }}</i></p>
+          <p><i>"{{ $application["description"] }}"</i></p>
           <img id="app_img" src="{{ $application["image_url"]}}" alt="imagen de la increíble app">
           <p>${{ $application["price"]}}</p>
           <form class="form-group" action="{{ route('order') }}" method="post" enctype="multipart/form-data">
@@ -40,6 +40,6 @@
         @endforelse
       </article>
     </section>
-</div>
+  </div>
   @include('layouts.footer')
   </body>

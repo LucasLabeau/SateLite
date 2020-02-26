@@ -12,6 +12,7 @@
 */
 Auth::routes();
 
+Route::get('/home', 'ApplicationController@index');
 Route::get('/','ApplicationController@index');
 Route::get('/application/{id}', 'ApplicationController@show') -> name('appShow');
 

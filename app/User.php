@@ -19,8 +19,8 @@ class User extends Authenticatable
 
      // Me aseguro que la tabla y el id tengan el nombre que quiero
      protected $table = 'users';
-     
-     protected $primaryKey = 'user_id';
+
+     protected $primaryKey = 'id';
 
 
      // Y relleno...

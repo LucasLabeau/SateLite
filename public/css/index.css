@@ -16,6 +16,7 @@ section#appsMain {
   justify-content: center;
   text-align: center;
   margin-left: 0px auto;
+  margin-top: 5px;
 }
 header {
   width: 100%;
