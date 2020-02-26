@@ -16,7 +16,7 @@ class CategoryController extends Controller
     {
       $categories = Category::all();
       $applications = \App\Application::all();
-      return view('website.categories')
+      return view('website.categories.categories')
       -> with('categories', $categories)
       -> with ('applications', $applications);
     }
@@ -67,7 +67,7 @@ class CategoryController extends Controller
       $categories = Category::find($id);
       $applications = \App\Application::where('category_id', $id)->paginate(9);
       //dd($categories);
-      return view('website.category')
+      return view('website.categories.category')
       -> with ('applications', $applications)
       -> with ('categories', $categories);
     }

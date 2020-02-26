@@ -31,12 +31,10 @@
 
         @endforelse
       </ul>
-
     </div>
     </article>
   </section>
 </div>
-
 @include('layouts.footer')
 </body>
 </html>
