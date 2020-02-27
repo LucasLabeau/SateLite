@@ -16,6 +16,7 @@ Route::get('/home', 'ApplicationController@index');
 Route::get('/','ApplicationController@index');
 Route::get('/application/{id}', 'ApplicationController@show') -> name('appShow');
 Route::get('/create', 'ApplicationController@create') -> name('create');
+Route::post('create', 'ApplicationController@store') -> name('createPost');
 
 Route::post('order', 'OrderController@store') -> name('order');
 

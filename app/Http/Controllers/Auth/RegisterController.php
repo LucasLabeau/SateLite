@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Arr;
 
 class RegisterController extends Controller
 {
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'login';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -65,8 +66,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-      //dd($data);
-      if (array_key_exists($data['isDev'])) {
+      //dd($data['isDev']);
+      if (Arr::has($data, 'isDev')) {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -78,6 +79,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'isDev' => 0,
             'password' => Hash::make($data['password']),
             'email_verified_at' => now(),
         ]);

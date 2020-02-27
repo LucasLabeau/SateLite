@@ -187,6 +187,12 @@ article#registerCard {
   top: 100px;
   width: 100%;
 }
+article#createCard {
+  display: flex;
+  position: absolute;
+  top: 100px;
+  width: 100%;
+}
 form#search {
   display: flex;
   position: relative;
@@ -198,24 +204,6 @@ form#search {
 }
 .yellow{
   background-color: yellow;
-}
-#encabezadoHome {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#contenidoAltoHome {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#contenidoBajoHome {
-  display: flex;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  top: 600px;
 }
 #homeImg {
   border-radius: 8px;
@@ -287,4 +275,23 @@ div#isDevCheck {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+section#appCreate {
+  display: flex;
+  position: relative;
+  top: 50px;
+  left: 100px;
+  text-align: center;
+  width: 100%;
+}
+article#appCreate {
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  background-color: white;
+}
+label#image {
+  position: relative;
+  top: 38px;
 }

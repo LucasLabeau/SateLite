@@ -69,7 +69,6 @@
                       <label class="form-check-label" for="isDev">
                         Registarse como desarrollador
                       </label>
-                      <input id="isDevHidden" name="isDev" type="hidden" value=null>
                     </div>
                   </div>
                   <div class="form-group row mb-0">

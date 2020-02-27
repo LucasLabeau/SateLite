@@ -32,7 +32,7 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        return view('website.app.upload');
+        return view('website.app.create');
     }
 
     /**
