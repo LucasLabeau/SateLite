@@ -29,6 +29,7 @@ Route::get('/login', function () {
 Route::get('/register', function () {
   return view('auth.register');
 }) -> name('register');
+Route::get('userProfile', 'SearchController@profile') -> name('userProfile');
 
 Route::get('search', 'SearchController@search');
 

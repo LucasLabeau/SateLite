@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class OrderController extends Controller
 {
@@ -35,18 +37,22 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+      if(Auth::user() == null) {
+        return redirect('login');
+    }
+    //dd($request);
       $rules = [
           'user_id' => 'required',
           'application_id' => 'required',
       ];
-
+      $msg = ['Hubo un error en :attribute'];
       $this->validate($request,$rules,$msg);
 
       $order = new Order($request->all());
 
       $order->save();
 
-      return redirect('website.order');
+      return redirect('/');
     }
 
     /**

@@ -3,7 +3,7 @@
 @include('layouts.header')
 @section('content')
   @if(count($errors) > 0)
-    <div class="alert alert-danger">
+    <div id="msg" class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>

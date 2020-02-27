@@ -104,7 +104,7 @@ li#comments {
   background-color: white;
 }
 li#subirUnaApp {
-  width: 200px;
+  width: 300px;
 }
 section#malaSeccion {
   display: hidden;
@@ -320,4 +320,8 @@ div#createCardBot {
   text-align: center;
   position: relative;
   bottom: 20px;
+}
+div#msg {
+  position: fixed;
+  top:100px;
 }
