@@ -9,6 +9,7 @@ use App\Comment;
 use App\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ApplicationController extends Controller
 {
@@ -32,7 +33,12 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        return view('website.app.create');
+      if(Auth::user() == null) {
+        return redirect('login');
+    }
+      $categorias = Category::all();
+        return view('website.app.create')
+        -> with('categorias', $categorias);
     }
 
     /**
@@ -43,7 +49,25 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+      $reglas = [
+          'name' => 'required',
+          'description' => 'required',
+          'image_url' => 'URL',
+          'user_id' => 'required',
+          'category_id' => 'required',
+          'price' => 'required'
+      ];
+
+      $mensaje=['el :attribute es obligatorio'];
+
+      $this->validate($request, $reglas, $mensaje);
+      //$cover = $request->file('image_url')->store('img','public');
+      $application = new Application($request->all());
+      //$application->image_url = $image;
+
+      $application->save();
+      return redirect('/');
     }
 
     /**

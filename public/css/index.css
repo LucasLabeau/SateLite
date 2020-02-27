@@ -293,5 +293,31 @@ article#appCreate {
 }
 label#image {
   position: relative;
-  top: 38px;
+  top: 20px;
+}
+div#image {
+  position: relative;
+  bottom: 30px;
+}
+label#catInCreate {
+  display: flex;
+  position: relative;
+  left: 33px;
+}
+select#catInCreate {
+  display: flex;
+  position: relative;
+  left: 260px;
+}
+
+input#price {
+  display: flex;
+  position: relative;
+  bottom: 37px;
+}
+div#createCardBot {
+  display: flex;
+  text-align: center;
+  position: relative;
+  bottom: 20px;
 }
