@@ -15,6 +15,7 @@ Auth::routes();
 Route::get('/home', 'ApplicationController@index');
 Route::get('/','ApplicationController@index');
 Route::get('/application/{id}', 'ApplicationController@show') -> name('appShow');
+Route::get('/create', 'ApplicationController@create') -> name('create');
 
 Route::post('order', 'OrderController@store') -> name('order');
 

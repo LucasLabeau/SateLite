@@ -63,7 +63,15 @@
                           <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                       </div>
                   </div>
-
+                  <div id="isDevCheck" class="form-group row">
+                    <div class="form-check">
+                      <input id="isDevCheck" class="form-check-input" type="checkbox" name ="isDev" value=1 >
+                      <label class="form-check-label" for="isDev">
+                        Registarse como desarrollador
+                      </label>
+                      <input id="isDevHidden" name="isDev" type="hidden" value=null>
+                    </div>
+                  </div>
                   <div class="form-group row mb-0">
                       <div class="col-md-6 offset-md-4">
                           <button type="submit" class="btn btn-primary">

@@ -22,7 +22,7 @@ class ApplicationController extends Controller
         //
         $applications = Application::paginate(3);
         $vac = compact('applications');
-        return view('website.AppsList', $vac);
+        return view('website.app.AppsList', $vac);
     }
 
     /**
@@ -32,7 +32,7 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        //
+        return view('website.app.upload');
     }
 
     /**
@@ -63,7 +63,7 @@ class ApplicationController extends Controller
         //$orders = Order::all();
         //$comments = Comment::all();
         //dd($application);
-        return view('website.appShow')
+        return view('website.app.appShow')
         -> with ('application', $application)
         -> with('comments', $comments);
 

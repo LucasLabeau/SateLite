@@ -6,6 +6,8 @@ z-index: -10;
 }
 div#appsMain {
   position: relative;
+  justify-content: center;
+  text-align: center;
   top: 80px;
   background-color: white;
   width: 100%;
@@ -13,10 +15,16 @@ div#appsMain {
 }
 section#appsMain {
   display: flex;
+  height: 100;
+  width: 100%;
   justify-content: center;
   text-align: center;
   margin-left: 0px auto;
   margin-top: 5px;
+}
+article#appsMain {
+  justify-content: center;
+  width: 100%;
 }
 header {
   width: 100%;
@@ -94,6 +102,9 @@ li#comments {
   border-color: rgba(105,105,105,0.7);
   border-radius: 5px;
   background-color: white;
+}
+li#subirUnaApp {
+  width: 200px;
 }
 section#malaSeccion {
   display: hidden;
@@ -220,6 +231,15 @@ h1 {
   border-color: rgba(105,105,105,0.7);
   border-radius: 5px;
 }
+h2 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-family: sans-serif;
+  border-style: double;
+  border-color: rgba(105,105,105,0.7);
+  border-radius: 5px;
+}
 h3 {
   display: flex;
   justify-content: center;
@@ -262,4 +282,9 @@ li#searchBody {
   font-family: sans-serif;
   border: groove;
   width: 100%;
+}
+div#isDevCheck {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
