@@ -325,3 +325,24 @@ div#msg {
   position: fixed;
   top:100px;
 }
+section#orderSection {
+  position: absolute;
+  top: 100px;
+  left: 500px;
+  text-align: center;
+}
+div#ratingAdd {
+  display: flex;
+  position: relative;
+  right: 50px;
+}
+label#comment {
+  display: flex;
+  position: relative;
+  bottom: 10px;
+}
+label#rating {
+  display: flex;
+  position: relative;
+  left: 90px;
+}

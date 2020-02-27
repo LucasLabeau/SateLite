@@ -16,7 +16,7 @@
           <div class="form-group">
             <input type="hidden" name= "price" value="{{$application["price"]}}">
             <input type="hidden" name= "application_id" value="{{$application["application_id"]}}">
-            <button class="btn btn-primary" type="submit" name="user_id" value="{{ Auth::user()->id }}">Comprar</button>
+            <button class="btn btn-primary" type="submit" name="user_id" value="{{ Auth::user()->id ?? ''}}">Comprar</button>
           </div>
         </form>
       </div>

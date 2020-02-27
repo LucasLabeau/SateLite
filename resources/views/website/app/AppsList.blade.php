@@ -19,12 +19,11 @@
           <p>${{ $application["price"]}}</p>
           <form class="form-group" action="{{ route('order') }}" method="post" enctype="multipart/form-data">
         @csrf
-          <div class="form-group">
-            <input type="hidden" name= "application_id" value="{{$application["application_id"]}}">
+        <div class="form-group">
+          <input type="hidden" name= "price" value="{{$application["price"]}}">
+          <input type="hidden" name= "application_id" value="{{$application["application_id"]}}">
+          <button class="btn btn-primary" type="submit" name="user_id" value="{{ Auth::user()->id ?? ''}}">Comprar</button>
         </div>
-          <div class="form-group">
-            <button class="btn btn-primary" type="submit" name="button">Comprar</button>
-          </div>
         </form>
         <a id="ver" href="{{ route('appShow', $application["application_id"]) }}">Ver</a>
       </div>

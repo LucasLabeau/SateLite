@@ -22,10 +22,12 @@ class SearchController extends Controller
     if(Auth::user() == null) {
       return redirect('login');
   }
-  $applications = DB::select("select * from applications
-  inner join users where applications.user_id = users.id");
-
+  $user = Auth::user()->id;
+  $orders = DB::select('select * from users
+  inner join orders on users.id = orders.user_id
+  inner join applications on applications.application_id = orders.application_id');
+  //dd($orders);
   return view('auth.userProfile')
-  -> with('applications', $applications);
+  -> with('orders', $orders);
   }
 }

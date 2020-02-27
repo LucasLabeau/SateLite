@@ -52,7 +52,7 @@ class OrderController extends Controller
 
       $order->save();
 
-      return redirect('/');
+      return view('website.order');
     }
 
     /**
