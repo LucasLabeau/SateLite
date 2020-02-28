@@ -25,7 +25,7 @@
           <button class="btn btn-primary" type="submit" name="user_id" value="{{ Auth::user()->id ?? ''}}">Comprar</button>
         </div>
         </form>
-        <a id="ver" href="{{ route('appShow', $application["application_id"]) }}">Ver</a>
+        <a href="{{ route('appShow', $application["application_id"]) }}">Ver</a>
       </div>
     </li>
       @empty

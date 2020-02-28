@@ -14,8 +14,10 @@ class SearchController extends Controller
     $search = $request->input('search');
     $application = DB::select("select * from applications WHERE name LIKE '%$search%'
     OR description LIKE '%$search%'");
+    //dd($application);
     return view('website.search')
     -> with ('application', $application);
+
   }
   public function profile()
   {

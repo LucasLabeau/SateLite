@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Application;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -35,7 +37,26 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      if(Auth::user() == null) {
+        return redirect('login');
+    }
+
+      $rules = [
+          'content' => 'required',
+          'rating' => 'required',
+          'order_id' => 'required'
+      ];
+      $msg = ['Hubo un error en :attribute'];
+      $this->validate($request,$rules,$msg);
+
+      $comment = new Comment($request->all());
+      //dd($comment);
+      $comment->save();
+
+      $applications = Application::paginate(3);
+      $vac = compact('applications');
+      
+      return view('website.app.AppsList', $vac);
     }
 
     /**

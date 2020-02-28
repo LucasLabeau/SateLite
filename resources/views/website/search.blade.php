@@ -24,7 +24,7 @@
               <button class="btn btn-primary" type="submit" name="button">Comprar</button>
             </div>
           </form>
-          <a id="ver" href="{{ route('appShow', $app->application_id) }}">Ver</a>
+          <a  href="{{ route('appShow', $app->application_id) }}">Ver</a>
         </div>
       </li>
         @empty

@@ -4,9 +4,9 @@
 @section('content')
   <div class="container">
       <section id="malaSeccion" class="row justify-content-center">
-        <article class="card">
+        <article id="profileCard" class="card">
           @forelse ($orders as $application)
-            @if ($application->user_id == Auth::user()->id)
+            @if ($application->id == Auth::user()->id)
               <div class="card-header">
                 <li id="appShow">
                   <div class="">
@@ -15,12 +15,14 @@
                     <img id="app_img" src="{{ $application->image_url}}" alt="imagen de la increíble app">
                     <p>${{ $application->price}}</p>
                   </div>
+
                 </li>
+                <a id="ver" href="{{ route('appShow', $application->application_id) }}">Ver</a>
               </div>
-              <div class="card-body">
+              <div id="commentAdd" class="card-body">
                 <form method="POST" action="{{ route('createComment') }}">
                     @csrf
-                    <div id="commentAdd" class="form-group row">
+                    <div class="form-group row">
                         <label id="comment" for="content" class="col-md-4 col-form-label text-md-right">{{ __('Dejanos tu comentario') }}</label>
 
                         <div class="col-md-6">
@@ -33,6 +35,7 @@
                                 <input id="rating" class="form-control" type="number" min="1" max="5" name="rating" value="{{ old('rating') }}" required>
                               </div>
                     </div>
+                    <input type="hidden" name="order_id" value="{{ $application->order_id }}">
                     <div id=commentCardBot  class="form-group row mb-0">
                           <div class="col-md-8 offset-md-4">
                               <button type="submit" class="btn btn-info">
@@ -46,7 +49,7 @@
             @endif
 
           @empty
-            <div class="">
+            <div id="upsProfile" class="">
               <h4>No se han encontrado apps que haya comprado</h4>
               </div>
           @endforelse

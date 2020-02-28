@@ -49,7 +49,6 @@ class OrderController extends Controller
       $this->validate($request,$rules,$msg);
 
       $order = new Order($request->all());
-
       $order->save();
 
       return view('website.order');
