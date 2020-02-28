@@ -248,6 +248,11 @@ h2 {
   border-color: rgba(105,105,105,0.7);
   border-radius: 5px;
 }
+h2#main {
+  display: flex;
+  position: relative;
+  top: 10px;
+}
 h3 {
   display: flex;
   justify-content: center;
@@ -321,13 +326,25 @@ article#appCreate {
   width: 100%;
   background-color: white;
 }
-label#image {
+label#image_url {
   position: relative;
   top: 20px;
 }
-div#image {
+div#image_url {
   position: relative;
-  bottom: 30px;
+  bottom: 26px;
+  left: 265px;
+}
+div#image {
+  display: flex;
+  position: relative;
+  left: 300px;
+}
+input#image {
+  display: flex;
+  position: relative;
+  bottom: 50px;
+  right: 35px;
 }
 label#catInCreate {
   display: flex;
@@ -401,4 +418,43 @@ a#destroy {
   display: flex;
   position: relative;
   left: 320px;
+}
+button#subirApp {
+  display: flex;
+  position: relative;
+  right: 50px;
+}
+input#resetApp {
+  display: flex;
+  position: relative;
+  bottom: 36px;
+  left: 255px;
+}
+label#url {
+  display: flex;
+  position: relative;
+  left: 54px;
+}
+input#url {
+  display: flex;
+  position: relative;
+  left: 84px;
+}
+button#upload {
+  display: flex;
+  position: relative;
+  right: 45px;
+  top: 36px;
+}
+div#upsProfile {
+  display: flex;
+  position: relative;
+  left: 50px;
+  bottom: 100px;
+}
+article#orderSection {
+  display: flex;
+  position: relative;
+  left: -40px;
+  bottom: 30px;
 }

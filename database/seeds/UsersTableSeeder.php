@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         'name' => 'Juancito',
         'email' => 'juancito@tuvieja.com',
         'email_verified_at' => now(),
-        'isDev' => 0,
+        'isDev' => 1,
         'password' => Hash::make('LaravelSucks'), // password
         'remember_token' => Str::random(10),
 
@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
 
         'name' => 'Solange',
         'email' => 'solange@callefalsa.com',
-        'isDev' => 0,
+        'isDev' => 1,
         'email_verified_at' => now(),
         'password' => Hash::make('LaravelSucks'), // password
         'remember_token' => Str::random(10),

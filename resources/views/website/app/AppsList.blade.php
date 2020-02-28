@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="container" id="appsMain">
-    <h2>Lo pediste, lo querías, ¡ahora lo tenés!</h2> <br>
+    <h2 id="main" >Lo pediste, lo querías, ¡ahora lo tenés!</h2> <br>
     <h4>Las mejores apps al mejor precio, todo eso en SateLite</h4>
     <section id="appsMain" class = "row justify-content-center">
       <article id="appsMain"  class="card">

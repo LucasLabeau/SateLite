@@ -46,12 +46,17 @@
                       </div>
                   </form>
               </div>
+            @else
+
             @endif
 
           @empty
-            <div id="upsProfile" class="">
-              <h4>No se han encontrado apps que haya comprado</h4>
-              </div>
+            <div class="card">
+              <div id="upsProfile" class="card-body">
+                <h4>Vacío por acá</h4>
+                </div>
+            </div>
+
           @endforelse
 
         </article>

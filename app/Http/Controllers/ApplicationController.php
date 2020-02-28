@@ -10,6 +10,8 @@ use App\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ApplicationController extends Controller
 {
@@ -32,7 +34,7 @@ class ApplicationController extends Controller
           $order = [0];
         }
 
-        $applications = Application::paginate(6);
+        $applications = Application::paginate(3);
         //dd($order);
         return view('website.app.AppsList')
         -> with('applications', $applications)
@@ -63,28 +65,27 @@ class ApplicationController extends Controller
     public function store(Request $request)
     {
 
-      $reglas = [
-          'name' => 'required',
-          'description' => 'required',
-          'image_url' => 'URL',
-          'user_id' => 'required',
-          'category_id' => 'required',
-          'price' => 'required'
-      ];
+      $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['required'],
+            'category_id' => ['required'],
+            'image_url' =>'required',
+            'price' => 'required',
+        ]);
 
-      $mensaje=['el :attribute es obligatorio'];
-
-      $this->validate($request, $reglas, $mensaje);
-      //$cover = $request->file('image_url')->store('img','public');
+      //dd(gettype($request->image_url));
       $application = new Application($request->all());
-      //$application->image_url = $image;
+      //dd($request);
 
+      if($request->file('image_url') !== null){
+      $cover = $request->file('image_url')->store('public');
+      $application->image_url = $cover;
+      }
       $application->save();
       return redirect('/');
     }
 
     /**
-     * Display the specified resource.
      *
      * @param  \App\Application  $application
      * @return \Illuminate\Http\Response
@@ -148,7 +149,7 @@ class ApplicationController extends Controller
       $reglas = [
           'name'=>'required',
           'description'=>'required',
-          'image_url' => 'URL',
+          'image_url' => 'required|min:3|max:2048',
           'category_id'=>'required',
           'price' => 'required',
       ];
@@ -161,9 +162,9 @@ class ApplicationController extends Controller
       $application->image_url = $request->input('image_url') !== $application->image_url ? $request->input('image_url') : $application->image_url;
       $application->price = $request->input('price') !== $application->price ? $request->input('price') : $application->price;
       //dd($application);
-      if($request->file('cover') !== null){
-      $cover = $request->file('cover')->store('covers','public');
-      $application->cover = $cover;
+      if($request->file('image_url') !== null){
+      $cover = $request->file('image_url')->store('public');
+      $application->image_url = $cover;
       }
       $application->save();
       return redirect('/edit');

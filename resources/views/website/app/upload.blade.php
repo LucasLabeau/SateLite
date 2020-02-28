@@ -18,7 +18,7 @@
               <div class="card-header">{{ __('Subir una App') }}</div>
 
               <div class="card-body">
-                <form method="POST" action="{{ route('uploadPost', $application["application_id"]) }}">
+                <form method="POST" action="{{ route('uploadPost', $application["application_id"]) }}" enctype="multipart/form-data" >
                   {{ method_field('PATCH') }}
                     @csrf
 
@@ -38,12 +38,15 @@
                             <input type="textarea" class="md-textarea form-control" name="description" value="{{ $application['description'] }}" required>
                             </div>
                           </div>
-
                           <div class="form-group row">
-                            <label id="image" class="col-md-4 col-form-label text-md-right" for="image_url">{{ __('Elegí una imagen o poné el código URL') }}</label>
-                            <div id="image" class="col-md-6 offset-md-4">
-                                <input class="form-control" type="url" name="image_url" value="{{ $application['image_url'] }}" > <br>
-                              </div>
+                            <label id="url" for="image_url">Ingrese la url de la imagen...</label>
+                            <input id="url" type="url" name="image_url" value="">
+                          </div>
+                          <div class="form-group row">
+                            <label id="image_url" class="col-md-4 col-form-label text-md-right" for="image_url">{{ __('Elegí una imagen') }}</label>
+                            </div>
+                            <div id="image_url" class="form-group row">
+                              <input id="image_url" type="file" accept="image/*" name="image_url" value="">
                             </div>
                             <div class="form-group row">
                               <label id="catInCreate" for="category">Elija la categoría correspondiente: </label>
@@ -67,7 +70,7 @@
                           </div>
                           <div id=createCardBot  class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                              <button type="submit" class="btn btn-success">
+                              <button id="upload" type="submit" class="btn btn-success">
                                 {{ __('Editar') }}
                               </button>
                               <input class="btn btn-secondary" type="reset" value="Reset">

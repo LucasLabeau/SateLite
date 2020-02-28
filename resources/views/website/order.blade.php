@@ -4,8 +4,8 @@
 @section('content')
   <div class="container" id="orderPageMain">
     <section id="orderSection" class = "row justify-content-center">
-      <article class="card">
-        <div class="card-body">
+      <article id="orderSection" class="card">
+        <div  class="card-body">
           <h2>¡Tu orden ha sido enviada con éxito!</h2>
         </div>
         <a href="{{route('home')}}">Volver a la pagina pricipal</a>

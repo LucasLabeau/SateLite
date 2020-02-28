@@ -31,7 +31,10 @@
           </li>
             @endif
           @empty
-            <h6>No hay aplicaciones en esta categoría</h6>
+            <div class="card">
+              <h6>No hay aplicaciones en esta categoría</h6>
+            </div>
+
             @endforelse
           @empty
         @endforelse
