@@ -51,6 +51,9 @@
                               @endif
                           @else
                               @if (Auth::user()->isDev == 1)
+                                <li id="editarUnaApp" >
+                                  <a class="nav-link" href="{{ route('myApps') }}">Mis Apps</a>
+                                </li>
                                 <li id="subirUnaApp" class="nav-item">
                                     <a class="nav-link" href="{{ route('create') }}">Subir una app</a>
                                 </li>

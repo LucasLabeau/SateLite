@@ -17,6 +17,10 @@ Route::get('/','ApplicationController@index')-> name('home');
 Route::get('/application/{id}', 'ApplicationController@show') -> name('appShow');
 Route::get('/create', 'ApplicationController@create') -> name('create');
 Route::post('create', 'ApplicationController@store') -> name('createPost');
+Route::get('/edit', 'ApplicationController@showMade') -> name('myApps');
+Route::get('/edit/{id}', 'ApplicationController@edit') -> name('edit');
+Route::patch('/upload/{id}', 'ApplicationController@update') -> name('uploadPost');
+Route::get('/delete/{id}', 'ApplicationController@destroy') -> name('deleteApp');
 
 Route::post('order', 'OrderController@store') -> name('order');
 Route::get('/order', function() {

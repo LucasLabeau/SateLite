@@ -52,11 +52,8 @@ class CommentController extends Controller
       $comment = new Comment($request->all());
       //dd($comment);
       $comment->save();
-
-      $applications = Application::paginate(3);
-      $vac = compact('applications');
       
-      return view('website.app.AppsList', $vac);
+      return redirect('home');
     }
 
     /**

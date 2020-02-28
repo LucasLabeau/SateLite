@@ -6,9 +6,9 @@
   <section class="row justify-content-center" id="search" >
     <article class="card" id="searchTop">
     <h3 id="searchTop">Los resultados de tu búsqueda:</h3>
-    <div class="card-body">
-      <ul>
-        @forelse ($application as $app)
+    @forelse ($application as $app)
+      <div class="card-body">
+        <ul>
           <li id="searchBody">
             <div class="card-body">
             <h4>{{ $app->name }}</h4>
@@ -28,10 +28,17 @@
         </div>
       </li>
         @empty
-
-        @endforelse
-      </ul>
-    </div>
+            <li id="searchUps" >
+              <div class="card-body">
+                <h4>No se encuentran resultados para mostrar</h4>
+              </div>
+            </li>
+            <div class="card-footer">
+              <a href="{{route('home')}}">Volver a la pagina pricipal</a>
+            </div>
+          </ul>
+        </div>
+      @endforelse
     </article>
   </section>
 </div>

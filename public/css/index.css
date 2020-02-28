@@ -106,6 +106,22 @@ li#comments {
 li#subirUnaApp {
   width: 300px;
 }
+li#editarUnaApp {
+
+}
+button#edit {
+  position: relative;
+  left: 312px;
+}
+section#editSeccion {
+  display: flex;
+  font-family: sans-serif;
+  position: relative;
+  top: 81px;
+  width: 100%;
+  border-left: 50px;
+  border-right: 50px;
+}
 section#malaSeccion {
   display: hidden;
   justify-content: center;
@@ -275,6 +291,16 @@ li#searchBody {
   border: groove;
   width: 100%;
 }
+li#searchUps {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    font-family: sans-serif;
+    border-top-style: dotted;
+    border-bottom-style: dotted;
+    width: 100%;
+}
 div#isDevCheck {
   display: flex;
   justify-content: center;
@@ -363,4 +389,16 @@ a#ver {
   display: flex;
   position: relative;
   left: 330px;
+}
+a#edit {
+  color: green;
+  display: flex;
+  position: relative;
+  left: 325px;
+}
+a#destroy {
+  color: red;
+  display: flex;
+  position: relative;
+  left: 320px;
 }

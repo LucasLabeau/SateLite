@@ -29,7 +29,7 @@ class ApplicationController extends Controller
             array_push($order, $key->application_id);
           }
         } else {
-          $order = [];
+          $order = [0];
         }
 
         $applications = Application::paginate(6);
@@ -112,9 +112,28 @@ class ApplicationController extends Controller
      * @param  \App\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function edit(Application $application)
+     public function showMade() {
+       if(Auth::user() == null) {
+         return redirect('login');
+     }
+     $applications = Application::all();
+     return view('website.app.edit')
+     -> with('applications', $applications);
+     }
+    public function edit($id)
     {
-        //
+      if(Auth::user() == null) {
+        return redirect('login');
+    }
+      if(Auth::user()->isDev == 0) {
+        return redirect('home');
+      }
+        $application = Application::find($id);
+        //dd($application);
+        $categorias = Category::all();
+        return view('website.app.upload')
+        -> with('categorias', $categorias)
+        -> with('application', $application);
     }
 
     /**
@@ -124,9 +143,30 @@ class ApplicationController extends Controller
      * @param  \App\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Application $application)
+    public function update(Request $request, $id)
     {
-        //
+      $reglas = [
+          'name'=>'required',
+          'description'=>'required',
+          'image_url' => 'URL',
+          'category_id'=>'required',
+          'price' => 'required',
+      ];
+      $mensaje = ['required' => 'el campo :attribute es obligatorio'];
+      $this->validate($request, $reglas, $mensaje);
+      $application = Application::find($id);
+      $application->name = $request->input('name') !== $application->name ? $request->input('name') : $application->name;
+      $application->description = $request->input('description') !== $application->description ? $request->input('description') : $application->description;
+      $application->category_id = $request->input('category_id') !== $application->category_id ? $request->input('category_id') : $application->category_id;
+      $application->image_url = $request->input('image_url') !== $application->image_url ? $request->input('image_url') : $application->image_url;
+      $application->price = $request->input('price') !== $application->price ? $request->input('price') : $application->price;
+      //dd($application);
+      if($request->file('cover') !== null){
+      $cover = $request->file('cover')->store('covers','public');
+      $application->cover = $cover;
+      }
+      $application->save();
+      return redirect('/edit');
     }
 
     /**
@@ -135,8 +175,10 @@ class ApplicationController extends Controller
      * @param  \App\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Application $application)
+    public function destroy($id)
     {
-        //
+        $application = Application::find($id);
+        $application -> delete();
+        return redirect('/edit');
     }
 }
