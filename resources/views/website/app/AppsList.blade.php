@@ -10,7 +10,13 @@
       <article id="appsMain"  class="card">
 
     <ul>
-      @forelse ($applications as $application)
+
+        @foreach ($applications as $application)
+        @if (false !== array_search($application["application_id"], $order))
+          @php
+            continue
+          @endphp
+        @endif
         <li id="applications1">
           <div class="card-body">
           <h4>{{ $application["name"] }}</h4>
@@ -28,10 +34,10 @@
         <a href="{{ route('appShow', $application["application_id"]) }}">Ver</a>
       </div>
     </li>
-      @empty
+      @endforeach
 
-      @endforelse
       {{$applications->links()}}
+
     </ul>
 
     </article>

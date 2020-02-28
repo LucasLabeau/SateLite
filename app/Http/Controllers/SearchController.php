@@ -24,7 +24,6 @@ class SearchController extends Controller
     if(Auth::user() == null) {
       return redirect('login');
   }
-  $user = Auth::user()->id;
   $orders = DB::select('select * from users
   inner join orders on users.id = orders.user_id
   inner join applications on applications.application_id = orders.application_id');

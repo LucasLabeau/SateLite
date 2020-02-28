@@ -21,9 +21,22 @@ class ApplicationController extends Controller
     public function index()
     {
         //
-        $applications = Application::paginate(3);
-        $vac = compact('applications');
-        return view('website.app.AppsList', $vac);
+        if (null !== Auth::user()) {
+          $order=[];
+          $user = Auth::user()->id;
+          $orders = DB::select("select * from orders where orders.user_id = $user");
+          foreach ($orders as $key) {
+            array_push($order, $key->application_id);
+          }
+        } else {
+          $order = [];
+        }
+
+        $applications = Application::paginate(6);
+        //dd($order);
+        return view('website.app.AppsList')
+        -> with('applications', $applications)
+        -> with('order', $order);
     }
 
     /**
