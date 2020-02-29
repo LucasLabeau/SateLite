@@ -23,22 +23,17 @@ class ApplicationController extends Controller
     public function index()
     {
         //
-        if (null !== Auth::user()) {
-          $order=[];
-          $user = Auth::user()->id;
-          $orders = DB::select("select * from orders where orders.user_id = $user");
-          foreach ($orders as $key) {
-            array_push($order, $key->application_id);
-          }
-        } else {
-          $order = [0];
-        }
-
+        //if (null !== Auth::user()) {
+        //  $user = Auth::user()->id;
+        //  $orders = Order::where('user_id', '=', $user)->get();
+          //dd($orders);
+        //}
+        //El error de acá es que no encontraría $orders en caso de no haber usuario
         $applications = Application::paginate(3);
-        //dd($order);
+        //dd($orders);
         return view('website.app.AppsList')
-        -> with('applications', $applications)
-        -> with('order', $order);
+        -> with('applications', $applications);
+        //-> with('orders', $orders);
     }
 
     /**
@@ -48,9 +43,6 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-      if(Auth::user() == null) {
-        return redirect('login');
-    }
       $categorias = Category::all();
         return view('website.app.create')
         -> with('categorias', $categorias);
@@ -93,9 +85,16 @@ class ApplicationController extends Controller
     public function show($id)
     {
       $application = Application::find($id);
-      $comments = DB::select("select * from users
-      inner join orders on orders.user_id = users.id
-      right join comments on comments.order_id = orders.order_id");
+
+      $data = User::with('orders.comments')
+      ->get();
+      //dd($data->toArray());
+      //dd($comments);
+      //$comments->users()->where('user_id', '')->get();
+      //$comments = DB::select("select * from users
+      //inner join orders on orders.user_id = users.id
+      //right join comments on comments.order_id = orders.order_id");
+
         //$application = Application::find($id);
         //$users = User::all();
         //$orders = Order::all();
@@ -103,7 +102,7 @@ class ApplicationController extends Controller
         //dd($application);
         return view('website.app.appShow')
         -> with ('application', $application)
-        -> with('comments', $comments);
+        -> with('data', $data);
 
     }
 

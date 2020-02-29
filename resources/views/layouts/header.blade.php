@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-    <header>
-      <div id="app">
+       <div id="app">
           <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
               <div class="container">
                   <a class="navbar-brand" href="{{ url('/') }}">
@@ -88,5 +81,3 @@
               @yield('content')
           </main>
       </div>
-    </header>
-</html>

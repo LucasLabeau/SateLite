@@ -12,11 +12,7 @@
     <ul>
 
         @foreach ($applications as $application)
-        @if (false !== array_search($application["application_id"], $order))
-          @php
-            continue
-          @endphp
-        @endif
+          
         <li id="applications1">
           <div class="card-body">
           <h4>{{ $application["name"] }}</h4>

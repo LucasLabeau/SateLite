@@ -1,8 +1,6 @@
 @extends('layouts.app')
-<body>
-@include('layouts.header')
+
 @section('content')
-  <div class="container">
     <section id="malaSeccion" class="row justify-content-center">
       <article class="card">
         <li id="appShow">
@@ -22,23 +20,26 @@
       </div>
     </li>
       <h3>Reseñas</h3>
-        @forelse ($comments as $comment)
+        @foreach ($data as $dat)
+          @foreach($dat->orders as $orders)
+            @if ($orders->application_id == $application["application_id"])
+              @forelse($orders->comments as $comment)
 
-          @if ($comment->application_id == $application["application_id"])
             <li id="comments" class="card">
-            <p id="commentName" class="card-header">{{ $comment->name }}</p>
+            <p id="commentName" class="card-header">{{ $dat->name }}</p>
             <div class="card-body">
               <p id="commentContent">{{ $comment->content }}</p>
               <p id="commentRating"><i>Este usuario le ha dado un <b>{{ $comment->rating }}</b> de 5</i></p>
             </div>
             </li><br>
-          @endif
+
 
         @empty
 
-        @endforelse
+      @endforelse
+      @endif
+    @endforeach
+    @endforeach
       </article>
     </section>
-  </div>
-  @include('layouts.footer')
-  </body>
+  @endsection

@@ -24,4 +24,10 @@ class Order extends Model
   public function user() {
     return $this->belongsTo(User::class, "user_id");
   }
+  public function application() {
+    return $this->belongsTo(Application::class, "application_id");
+  }
+  public function comments() {
+    return $this->hasMany(Comment::class, "order_id");
+  }
 }

@@ -23,4 +23,17 @@
     <link rel="stylesheet" href="{{ asset('/css/index.css') }}">
 
 </head>
+<body>
+  <header>
+    @include('layouts.header')
+  </header>
+
+  <div class="container">
+    @yield('content')
+  </div>
+  <footer>
+    @include('layouts.footer')
+  </footer>
+
+</body>
 </html>

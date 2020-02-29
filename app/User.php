@@ -47,11 +47,11 @@ class User extends Authenticatable
     ];
 
     // Relaciones...
-    public function order() {
+    public function orders() {
       return $this->hasMany(Order::class, "user_id");
     }
 
-    public function application() {
+    public function applications() {
       return $this->hasMany(Application::class, "user_id");
     }
 }
